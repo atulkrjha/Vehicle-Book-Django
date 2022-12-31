@@ -1,0 +1,5 @@
+<option value="">---------</option>
+{% for bike in bikes %}
+<option value="{{ bike.pk }}">{{ bike.bike_name }}</option>
+{% endfor %}
+

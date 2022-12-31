@@ -1,0 +1,34 @@
+{% extends 'loginuser/base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+	<center>
+	<h1>Hello {{ user.emailid }}! </h1>
+	
+</center>
+	<h3>Your Orders</h3>
+
+	{% if customers_orders %}
+		{% for order in customers_orders %}
+			<div class="card">
+  				<div class="card-header">
+    				<p> {{ order.pk }} {{ order }}</p>
+  				</div>
+  			<div class="card-body">
+			<h5 class="card-title">Station: {{ order.bike.station }}</h5>
+    		<h5 class="card-title">Bikes: {{ order.bike.bike_name }}</h5>
+    		<p class="card-text">
+    		</p>
+  			</div>
+  		{% endfor %}
+
+	{% else %}
+	Sorry...There are no Orders Placed by you. Kindly CliCk on navbar link to place order...
+	{% endif %}
+	{% else %}
+
+	<p> Access Denied Pls. Login </p>
+	
+	{% endif %}
+	
+{% endblock %}
